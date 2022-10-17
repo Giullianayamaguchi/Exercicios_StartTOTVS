@@ -1,164 +1,30 @@
-Function Main()
+function main()
 
-    Local nMes   := 0
-    Local ndia   := 0
-    Local nDias  := 0 
-    Local nAnoBi := ""
+    Local nDia := 0
+    Local nMes := 0
+    Local nAno := 0
+    Local dDat 
+    Local Dia_Ano := 0
+    Local nBix := .F.
 
-    ACCEPT "Digite o dia: " to nDia
-    ACCEPT "Digite o mes: " to nMes
-    ACCEPT "O ano e binario: (S- Sim ou N- Nao): " to nAnoBi
-    nAnoBi = Upper(nAnoBi)
+    ACCEPT "Digite o dia: " TO nDia
+    ACCEPT "Digite o Mes: " TO nMes
+    ACCEPT "Digite o Ano: " TO nAno
 
-    if (Val(nMes) = 1)
-        nDias = Val(nDia)
-        QOUT("a quantidade de dias do ano at� a data insrida eh: " + alltrim(str(nDias)))
+    dDat := CToD(nAno + "/" + nMes + "/" + nDia)
 
-    elseif (Val(nMes) = 2)
-        nDias = 31 + Val(nDia)
-        QOUT("a quantidade de dias do ano ate a data inserida eh: " + alltrim(str(nDias)))
-    
-    elseif (Val(nMes) = 3)
-        if (nAnoBi = "S")
-        nDias = 60 + Val(nDia)
-        QOUT("a quantidade de dias do ano ate a data inserida eh: " + alltrim(str(nDias)))
-        
-        elseif (nAnoBi = "N")
-        nDias = 59 + Val(nDia)
-        QOUT("a quantidade de dias do ano ate a data inserida eh: " + alltrim(str(nDias)))
+    nBix := IsLeap(dDat)
 
-        else 
-        QOUT("Erro, informacoes informadas estao incorretas")
+    Dia_Ano := DoY(dDat)
 
-        ENDIF
-        
-    elseif (Val(nMes) = 4)
-        if (nAnoBi = "S") .and. 
-        nDias = 91 + Val(nDia)
-        QOUT("a quantidade de dias do ano ate a data inserida eh: " + alltrim(str(nDias)))
-        
-        elseif (nAnoBi = "N")
-        nDias = 90 + Val(nDia)
-        QOUT("a quantidade de dias do ano ate a data inserida eh: " + alltrim(str(nDias)))
+    dDat := DMY(dDat)
 
-        else 
-        QOUT("Erro, informacoes informadas estao incorretas")
+    if nBix == .T.
+        QOUT("A data " + dDat + " Corresponde ao " + Alltrim(Str(Dia_Ano)) + "°/366 dia do ano!")
 
-        ENDIF
+    else
+        QOUT("A data " + dDat + " Corresponde ao " + Alltrim(Str(Dia_Ano)) + "°/365 dia do ano!")
 
-    elseif (Val(nMes) = 5)
-        if (nAnoBi = "S")
-        nDias = 121 + Val(nDia)
-        QOUT("a quantidade de dias do ano ate a data inserida eh: " + alltrim(str(nDias)))
-        
-        elseif (nAnoBi = "N")
-        nDias = 120 + Val(nDia)
-        QOUT("a quantidade de dias do ano ate a data inserida eh: " + alltrim(str(nDias)))
+    end if
 
-        else 
-        QOUT("Erro, informacoes informadas estao incorretas")
-
-        ENDIF
-
-    elseif (Val(nMes) = 6)
-        
-        if (nAnoBi = "S")
-        nDias = 152 + Val(nDia)
-        QOUT("a quantidade de dias do ano ate a data inserida eh: " + alltrim(str(nDias)))
-        
-        elseif (nAnoBi = "N")
-        nDias = 151 + Val(nDia)
-        QOUT("a quantidade de dias do ano ate a data inserida eh: " + alltrim(str(nDias)))
-
-        else 
-        QOUT("Erro, informacoes informadas estao incorretas")
-
-        ENDIF
-
-    elseif (Val(nMes) = 7)
-        if (nAnoBi = "S")
-        nDias = 182 + Val(nDia)
-        QOUT("a quantidade de dias do ano ate a data inserida eh: " + alltrim(str(nDias)))
-        
-        elseif (nAnoBi = "N")
-        nDias = 181 + Val(nDia)
-        QOUT("a quantidade de dias do ano ate a data inserida eh: " + alltrim(str(nDias)))
-
-        else 
-        QOUT("Erro, informacoes informadas estao incorretas")
-
-        ENDIF
-
-    elseif (Val(nMes) = 8)
-        if (nAnoBi = "S")
-        nDias = 213 + Val(nDia)
-        QOUT("a quantidade de dias do ano ate a data inserida eh: " + alltrim(str(nDias)))
-        
-        elseif (nAnoBi = "N")
-        nDias = 212 + Val(nDia)
-        QOUT("a quantidade de dias do ano ate a data inserida eh: " + alltrim(str(nDias)))
-
-        else 
-        QOUT("Erro, informacoes informadas estao incorretas")
-
-        ENDIF
-
-    elseif (Val(nMes) = 9)
-        if (nAnoBi = "S")
-        nDias = 244 + Val(nDia)
-        QOUT("a quantidade de dias do ano ate a data inserida eh: " + alltrim(str(nDias)))
-        
-        elseif (nAnoBi = "N")
-        nDias = 243 + Val(nDia)
-        QOUT("a quantidade de dias do ano ate a data inserida eh: " + alltrim(str(nDias)))
-
-        else 
-        QOUT("Erro, informacoes informadas estao incorretas")
-
-        ENDIF
-
-    elseif (Val(nMes) = 10)
-        if (nAnoBi = "S")
-        nDias = 274 + Val(nDia)
-        QOUT("a quantidade de dias do ano ate a data inserida eh: " + alltrim(str(nDias)))
-        
-        elseif (nAnoBi = "N")
-        nDias = 273 + Val(nDia)
-        QOUT("a quantidade de dias do ano ate a data inserida eh: " + alltrim(str(nDias)))
-
-        else 
-        QOUT("Erro, informacoes informadas estao incorretas ")
-
-        ENDIF
-
-    elseif (Val(nMes) = 11)
-        if (nAnoBi = "S")
-        nDias = 305 + Val(nDia)
-        QOUT("a quantidade de dias do ano ate a data inserida eh: " + alltrim(str(nDias)))
-        
-        elseif (nAnoBi = "N")
-        nDias = 304 + Val(nDia)
-        QOUT("a quantidade de dias do ano ate a data inserida eh: " + alltrim(str(nDias)))
-
-        else 
-        QOUT("Erro, informacoes informadas estao incorretas")
-
-        ENDIF
-
-    elseif (Val(nMes) = 12)
-        if (nAnoBi = "S")
-        nDias = 335 + Val(nDia)
-        QOUT("a quantidade de dias do ano ate a data inserida eh: " + alltrim(str(nDias)))
-        
-        elseif (nAnoBi = "N")
-        nDias = 334 + Val(nDia)
-        QOUT("a quantidade de dias do ano ate a data inserida eh: " + alltrim(str(nDias)))
-
-        else 
-        QOUT("Erro, informacoes informadas estao incorretas ")
-
-        ENDIF
-
-    endif
-
-RETURN NIL
+RETURN nil
