@@ -41,22 +41,12 @@ function checaMed (nNota)
             
         endif
 
-        ACCEPT "Deseja continuar? (Y/N) " to cOpt
-        cOpt := UPPER(cOpt)
+        WAIT "Pressione ESC para mostrar o valor total, ou qualquer outra tecla para voltar do começo"
 
-        if cOpt == "Y"
+        if lastkey() == 27
 
-            loop
-        
-        elseif cOpt == "N"
-
-            lVal = .F.
-
-        else
-
-            QOUT( "ERRO")
-            loop
-
+            lVal := .f.
+            
         ENDIF
 
     enddo
