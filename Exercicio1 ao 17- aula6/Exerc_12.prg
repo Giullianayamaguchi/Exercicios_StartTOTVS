@@ -34,7 +34,7 @@ Static Function Menu(cOpcao)
 
         ENDIF
         
-        WAIT "Pressione ESC para mostrar o valor total, ou qualquer outra tecla para voltar do começo"
+        WAIT "Pressione ESC para mostrar o valor total, ou qualquer outra tecla para voltar do comeÃ§o"
 
             if lastkey() == 27
 
@@ -58,8 +58,8 @@ Static Function JuroSim()
     ACCEPT("Digite o valor do prazo: ") to nN
     nN := Val(nN)
     
-  //  nVF := nVP *(1 + nI + nN)
-    nVf := nVP + (nVP * Ni * nN)
+    nVF := nVP + (nVP + nI * nN)
+    //nVf := nVP + (nVP * Ni * nN)
     qout("o valor atualizado eh de: " + alltrim(str(nVF)))
 
 RETURN nVF
